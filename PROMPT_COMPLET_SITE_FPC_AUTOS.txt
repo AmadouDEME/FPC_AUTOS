@@ -1,0 +1,167 @@
+# PROMPT COMPLET — SITE WEB FPC AUTOS POUR GOOGLE ANTIGRAVITY
+
+## RÔLE ET LIVRABLE ATTENDU
+Tu es un développeur web senior, un designer UI/UX et un intégrateur spécialisé dans les sites vitrines de petites entreprises françaises. Construis un vrai site vitrine de démonstration complet et élégant pour FPC Autos, une entreprise fictive de contrôle technique automobile implantée à Nantes.
+
+Utilise ce brief et le dossier `images/` fourni comme sources de référence. Crée le code, l'architecture du projet, les pages, les composants, le responsive, puis teste le rendu sur ordinateur ET mobile. Ne réponds pas uniquement par des idées ou du pseudo-code : livre un projet exécutable, avec une prévisualisation et les instructions pour le lancer et le publier.
+
+Le résultat doit donner l'impression d'un vrai site de PME locale réalisé par une agence sérieuse, pas d'un template générique ni d'une maquette artificielle. Le site sera présenté à un professeur lors d'une simulation commerciale par l'agence fictive Nexvia Digital.
+
+## 1 — CONTEXTE CLIENT (INFORMATIONS CONNUES)
+- Nom : FPC Autos.
+- Domaine : centre de contrôle technique automobile (véhicules particuliers et professionnels, activité deux-roues à confirmer dans les contenus définitifs).
+- Création : 1er avril 2007 ; les 20 ans seront célébrés en 2027 (ne pas écrire « 20 ans d'expérience » comme si cela était déjà atteint en 2026).
+- Centre actuel : 15 boulevard Jean Moulin, 44100 Nantes.
+- Gérant et chef d'atelier : Fabrice Pommier.
+- Accueil / réception / comptabilité : Karine Pommier.
+- Équipe du centre actuel : quatre personnes au total, comprenant deux techniciens de contrôle technique.
+- Nouveau centre envisagé à Rezé, à présenter comme un projet / une ouverture à venir, sans affirmer qu'il est déjà ouvert. L'adresse « 8 rue Léon Blum » figure dans les notes commerciales, mais elle doit être confirmée avant affichage public.
+- Demande initiale : site web pour améliorer notoriété, visibilité en ligne, réputation et développement commercial.
+- Besoins exprimés en rendez-vous : mettre en avant le côté familial et les liens humains ; valoriser l'expertise et l'histoire ; photos de l'équipe ; actualités concernant Rezé ; témoignages ; accès facile pour une clientèle dont une part importante est senior ; prise de rendez-vous en ligne ; faciliter le travail de l'accueil.
+- Tarifs évoqués pendant l'exercice : 85 € pour une voiture et 55 € pour une moto. Les afficher seulement comme « tarifs indicatifs à confirmer », pas comme prix officiels et définitifs.
+- Les 3 500 € HT correspondent au devis de création du site proposé par Nexvia Digital, pas au tarif d'un contrôle technique : NE PAS afficher le devis ou le prix du développement sur le site public.
+
+## 2 — OBJECTIFS COMMERCIAUX DU SITE
+1. Donner confiance dès les premières secondes en montrant qu'il s'agit d'une entreprise de proximité, familiale, sérieuse et accessible.
+2. Permettre de comprendre immédiatement où se situe le centre, ce qu'il propose et comment contacter l'équipe.
+3. Faciliter la découverte des services et la prise de rendez-vous, notamment pour les visiteurs seniors et sur smartphone.
+4. Expliquer l'histoire de l'entreprise et mettre en valeur Fabrice, Karine et les deux techniciens sans inventer de biographies.
+5. Préparer la visibilité du futur centre de Rezé, sans présenter l'ouverture comme acquise.
+6. Proposer une structure adaptée au référencement local (Nantes, contrôle technique, Rezé).
+
+## 3 — DIRECTION ARTISTIQUE
+- Univers : confiance, proximité, famille, simplicité, compétence technique.
+- Identité : partir du VRAI logo fourni, `images/00_Logo_original_FPC_Autos.png`. Ce fichier comporte le titre « FPC Autos à Nantes » et un badge rond bleu « CONTRÔLE TECHNIQUE ». Ne pas substituer un logo recréé par IA, un pictogramme de voiture ou une autre marque ; ne pas afficher le logo en énorme comme photo de substitution.
+- Palette recommandée : bleu marine profond (#12304B), bleu moyen inspiré du badge (#1877B9), blanc (#FFFFFF), blanc cassé (#F8F9FA), gris texte (#4C5F70). Petit accent orange très discret uniquement si cohérent avec le design. Les couleurs exactes du logo ont priorité.
+- Typographies : sans serif contemporaines, lisibles et professionnelles (Inter, Manrope ou une police système équivalente). Grandes tailles pour les titres, texte courant au moins 16 px, contraste élevé.
+- Design : mise en page aérée, alignements précis, marges régulières, belles photos bien cadrées, cartes minimales, détails sobres, ombres légères, bordures simples. Animations discrètes si utiles.
+- À ÉVITER IMPÉRATIVEMENT : emojis, illustrations caricaturales, photos générées par IA, grandes zones vides, blocs gris faute d'image, faux logos, dégradés criards, formes décoratives répétées, textes trop longs, boutons inertes, galerie de photos sans pertinence, apparence de template ChatGPT.
+- Présentation du logo : intégré proprement au header, dimension proportionnée, jamais déformé ni massivement recadré. Si le logo complet est difficile à placer horizontalement, concevoir un header à la bonne hauteur et proposer une variante de disposition sans retoucher son contenu.
+
+## 4 — PLAN DES PAGES / SECTIONS
+Créer un site d'abord en une page premium très soignée avec navigation par ancres fonctionnelles ; l'architecture peut permettre de séparer les pages plus tard. Menu : Accueil, Nos contrôles, Notre histoire, L'équipe, Nos centres, Avis, Rendez-vous, Contact.
+
+A. HEADER
+- Logo réel visible, sans autre logo de remplacement.
+- Navigation claire (menu burger accessible sur mobile).
+- Bouton principal « Prendre rendez-vous ».
+- Affichage mobile sans boutons coupés ni éléments hors écran.
+
+B. HERO / PREMIER ÉCRAN
+- Photo principale `images/01_Photo_accueil_page_accueil.png` : scène d'accueil humain, à utiliser comme visuel d'illustration. Ajuster cadrage et position pour ne pas couper les visages.
+- Proposition de titre, à perfectionner si nécessaire : « Votre contrôle technique, en toute confiance. »
+- Accroche : « À Nantes, une équipe à taille humaine vous accueille et vous accompagne depuis 2007. »
+- Boutons : « Prendre rendez-vous » et « Découvrir le centre ».
+- Indications courtes de réassurance : « Nantes — Jean Moulin », « Depuis 2007 », « Accueil de proximité ».
+- Éviter de superposer trop de texte sur le visage ou de rendre la photo sombre artificiellement.
+
+C. NOS CONTRÔLES / PRESTATIONS
+- Cartes sobres pour « Contrôle technique auto », « Contrôle des deux-roues » (prestation à confirmer), « Professionnels ».
+- Visuel `images/02_Photo_technicien_prestations.png` pour l'univers atelier ; ne pas affirmer que FPC Autos fait de la réparation de véhicules, la photo représentant un mécanicien et non obligatoirement un contrôle réglementaire.
+- Textes informatifs courts, sans descriptions techniques ni promesses réglementaires non vérifiées.
+- Tarifs indicatifs 85 € auto et 55 € moto seulement si l'on choisit de les afficher, avec une mention claire « à confirmer ».
+
+D. L'ESPRIT FAMILIAL / NOTRE HISTOIRE
+- Mentionner l'ouverture de FPC Autos en 2007, la relation de proximité et la dimension familiale.
+- Montrer la complémentarité des rôles : Fabrice pour la direction et le suivi technique ; Karine pour l'accueil et l'administration.
+- Prévoir un bloc visuel pour la future photographie d'équipe `images/05_Photo_groupe_equipe.png`, mais si elle est absente, utiliser une composition éditoriale propre (texte, chiffres, photo d'ambiance autorisée), sans faux portrait ni logo géant.
+- Éventuellement mentionner « 20 ans en 2027 » dans une actualité, sans faire croire que l'anniversaire est déjà passé.
+
+E. L'ÉQUIPE
+- Titre suggéré : « Des visages, un savoir-faire, une même attention. »
+- Une photo d'équipe si elle est fournie ; ne jamais inventer visuellement les vrais salariés.
+- Deux cartes : Fabrice Pommier — Gérant et chef d'atelier ; Karine Pommier — Accueil et administration.
+- Les fichiers `images/06_Portrait_illustratif_Fabrice.png` et `images/07_Portrait_illustratif_Karine.png` sont des PHOTOS D'ILLUSTRATION fournies pour la maquette. Elles ne représentent PAS les vrais Fabrice et Karine. Présenter les rôles et noms de Fabrice et Karine dans le texte, et les visuels dans une section avec mention clairement visible « Photographies d'illustration » ; ne pas légender la personne sur la photo « Fabrice » ou « Karine » comme si son identité était avérée. Prévoir le remplacement par des portraits authentiques si le client en fournit.
+- Les deux techniciens peuvent être mentionnés collectivement sans inventer leurs prénoms.
+
+F. ACCOMPAGNEMENT ET CONSEILS
+- Utiliser `images/03_Photo_echange_client_accompagnement.png` pour illustrer un échange entre professionnel et client.
+- Mettre en avant l'écoute, les explications compréhensibles et la simplicité des démarches.
+- La photographie est illustrative : ne pas prétendre que les personnes travaillent chez FPC Autos.
+
+G. NOS CENTRES
+- Carte Nantes : adresse confirmée 15 boulevard Jean Moulin, 44100 Nantes ; bouton itinéraire via Google Maps pouvant utiliser l'adresse textuelle ; pas d'horaires inventés.
+- Carte Rezé : projet de centre, badge « Ouverture à venir » ou « Projet en cours » ; adresse exacte non publiée si non confirmée ; pas de possibilité de réserver à Rezé tant que l'ouverture n'est pas effective.
+- Photo `images/04_Photo_exterieur_garage_centres.png` autorisée uniquement comme image d'illustration, sans prétendre qu'il s'agit de la véritable façade FPC Autos. La photo étant sombre, ne pas l'utiliser comme photo principale ; possibilité de ne pas l'utiliser si elle nuit au design.
+- Quand la vraie façade sera fournie, elle pourra remplacer la photo illustrative.
+
+H. AVIS CLIENTS
+- Section esthétique : étoiles visuelles discrètes, citations courtes, prénoms et initiales, ex. « Marie D. », « Philippe L. », « Sophie B. ».
+- IMPORTANT : aucun avis authentique n'a été fourni. Les exemples doivent donc être identifiés « Avis fictif — démonstration » dans la maquette. Ne pas afficher de note Google officielle, de nombre d'avis ni de dates inventés.
+- Prévoir le remplacement facile par de vrais avis autorisés.
+
+I. PRISE DE RENDEZ-VOUS
+- Parcours accessible et clair : type de véhicule, centre, date souhaitée, période de la journée, récapitulatif.
+- Centre de Nantes actif ; Rezé non réservable tant que l'ouverture n'est pas confirmée.
+- Montrer le prix indicatif selon auto/moto : 85 €/55 € (à confirmer).
+- Dans cette version de démonstration : aucune vraie réservation, aucun paiement, aucun stockage de données personnelles. Après validation, message explicite « Ceci est une simulation : aucun rendez-vous n'a été enregistré. »
+- Architecture de code prévue pour connecter plus tard un agenda ou logiciel de réservation, sans prétendre que cette intégration existe déjà.
+- Une version avec plaque d'immatriculation pourrait être envisagée plus tard, mais n'enregistre pas de plaque dans la démo.
+
+J. CONTACT ET FOOTER
+- Adresse de Nantes, lien itinéraire, champs de téléphone/email/horaires à compléter lorsqu'ils sont fournis. Ne jamais inventer de numéro ou d'adresse email.
+- Liens de navigation, mentions « Maquette de démonstration », crédits photos et Nexvia Digital de façon discrète si souhaité.
+- Prévoir de vraies mentions légales / confidentialité avant une publication commerciale réelle ; les champs inconnus doivent rester explicitement à compléter dans cette démo.
+
+## 5 — FICHIERS FOURNIS ET FUTURS VISUELS
+Fichiers présents dans `images/` (l’intitulé de chaque fichier indique où l’utiliser sur le site) :
+- `00_Logo_original_FPC_Autos.png` — logo fourni par l'utilisatrice, utiliser strictement ce fichier.
+- `01_Photo_accueil_page_accueil.png` — échange chaleureux à un comptoir ; image de hero.
+- `02_Photo_technicien_prestations.png` — homme avec une roue dans un atelier ; section savoir-faire/prestations.
+- `03_Photo_echange_client_accompagnement.png` — technicien et interlocuteur avec document ; relation client.
+- `04_Photo_exterieur_garage_centres.png` — façade/entrée de garage sombre ; image optionnelle, clairement illustrative.
+
+Photos supplémentaires DÉSORMAIS FOURNIES dans `images/` :
+- `05_Photo_groupe_equipe.png` — photo collective de quatre personnes en tenue d'atelier, à utiliser dans « Notre équipe » ; visuel d'illustration et non la vraie équipe de FPC Autos. Fichier de petite résolution : préférer une insertion de taille raisonnable, pas une grande bannière plein écran.
+- `06_Portrait_illustratif_Fabrice.png` — professionnel souriant en tenue de travail, à utiliser comme ambiance de portrait dans la section équipe ; cette personne n'est PAS Fabrice Pommier.
+- `07_Portrait_illustratif_Karine.png` — femme souriante assise à un bureau, pour l'ambiance accueil / gestion administrative ; cette personne n'est PAS Karine Pommier.
+- `09_Photo_controle_technique_atelier.png` — techniciens observant le dessous d'une voiture sur pont élévateur ; pour savoir-faire / atelier, photo d'illustration.
+
+Image facultative NON FOURNIE : `08_Photo_accueil_senior.jpg`, si une photo adaptée avec droits de réutilisation est trouvée ultérieurement. Il n'est pas nécessaire de l'attendre : utiliser à sa place la photo d'accueil `01_Photo_accueil_page_accueil.png` si besoin. Les vrais portraits des gérants et la vraie façade du centre ne sont pas fournis et ne doivent pas être inventés.
+
+RÈGLES ABSOLUES D'IMAGES :
+- Utiliser EXCLUSIVEMENT les fichiers locaux fournis ; ne pas substituer d'images IA ou de liens distants qui risquent de ne pas charger.
+- Conserver une architecture où remplacer une photo se fait en changeant un seul fichier ou une seule constante d'image.
+- Si une image manque, ne pas remplacer par le logo, ne pas afficher une énorme zone grise : ajuster la composition et signaler l'emplacement manquant dans le code ou le README.
+- Les photos provenant de Pexels ou d'autres banques doivent être utilisées selon leur licence ; Pinterest sert à repérer l'inspiration mais ne confère pas automatiquement le droit de réutiliser une image.
+- Ne pas inventer de faux portraits attribués aux vrais prénoms du cas fictif.
+
+## 6 — ATTENTES TECHNIQUES
+- Site rapide, responsive pour desktop, tablette et mobile.
+- Stack au choix : React + Vite + CSS/Tailwind si cela facilite la maintenance, ou HTML/CSS/JS propre si plus adapté ; pas de backend imposé.
+- Images locales optimisées (dimensions, formats, lazy loading hors hero, bonnes tailles et alt adaptés).
+- Header sticky élégant, menu mobile utilisable au clavier, ancres fonctionnelles.
+- Boutons cliquables et formulaires qui fonctionnent dans les limites explicites de la démo.
+- Structure sémantique HTML, contrastes suffisants, focus visible, labels, navigation au clavier, largeurs confortables pour une clientèle senior.
+- Pas d'effets inutiles ni de carrousels automatiques.
+- SEO local de base : title, meta description, headings corrects, Open Graph si utile, mais pas de balisage de données structurées contenant des informations inventées.
+- Pas d'images qui dépendent d'Unsplash/Pexels externes pour s'afficher : tous les visuels réellement utilisés doivent être présents dans `images/` et intégrés au build final.
+- Prévoir une publication statique facile (Netlify ou Vercel) ; fournir une commande de build et un dossier publiable.
+
+## 7 — VALIDATION AVANT LIVRAISON
+Vérifier au minimum :
+- Page d'accueil en desktop 1440 px et mobile 390 px, pas de débordements horizontaux.
+- Vrai logo visible, proportionné et non déformé ; il n'apparaît pas comme une photo de remplissage dans la page.
+- Photos locales correctement chargées dans toutes les sections, sans aucun remplacement IA.
+- Pas d'emoji, aucune illustration générée par défaut.
+- Navigation, menu mobile, ancres, CTA et formulaire simulé testés.
+- Aucune information commerciale inventée (numéro de téléphone, horaires, avis authentiques, ouverture Rezé, vrais portraits).
+- Une zone avis présentable mais honnêtement étiquetée comme démonstration.
+- Le site a une esthétique professionnelle, humaine et accessible.
+- Indiquer au moment de la livraison du site comment remplacer les images, modifier les textes/tarifs/coordonnées, et lancer et publier le site.
+
+Commence par analyser les images disponibles, propose la direction visuelle la plus cohérente, puis implémente immédiatement le site complet. Ne bloque pas la réalisation en attendant les photos complémentaires : prévois l'architecture pour les ajouter ensuite.
+
+
+## 8 — IMPORTANT : PHOTOS RETENUES ET PLACEMENT PRÉCIS
+Toutes les images du dossier sont des fichiers locaux, non générés par l'IA dans ce pack. Les photos de banque d'images ne montrent pas les véritables salariés ou locaux de FPC Autos.
+- Accueil (hero) : 01, photo comptoir ; ambiance humaine.
+- Prestations : 02, homme avec pneu ; photo illustrative d'atelier.
+- Accompagnement : 03, échange au sujet d'un document.
+- Histoire et équipe : 05, quatre personnes souriantes (résolution modeste ; affichage limité).
+- Portrait d'ambiance côté direction technique : 06, homme souriant, SANS faire croire qu'il s'agit de M. Pommier.
+- Portrait d'ambiance côté accueil / administratif : 07, femme au bureau, SANS faire croire qu'il s'agit de Mme Pommier.
+- Expertise / contrôle : 09, observation technique sous un véhicule.
+- Carte « Nos centres » : 04 est une photographie d'illustration sombre, facultative ; ne jamais la présenter comme la vraie façade nantaise.
+- Aucun visuel senior supplémentaire n'est indispensable à la réalisation.
+Les fichiers doivent être référencés par leurs noms exacts. Ne pas générer de nouvelles photos et ne pas insérer d'images de remplacement à la place d'un fichier manquant.

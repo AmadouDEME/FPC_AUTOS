@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FPC Autos — Contrôle Technique à Nantes</title>
+  <meta name="description" content="FPC Autos, centre de contrôle technique automobile à Nantes (15 bd Jean Moulin). Équipe familiale, accueil personnalisé, expertise depuis 2007. Prenez rendez-vous en ligne." />
+  <meta property="og:title" content="FPC Autos — Contrôle Technique à Nantes" />
+  <meta property="og:description" content="Centre de contrôle technique automobile à Nantes. Équipe à taille humaine, depuis 2007." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/00_Logo_original_FPC_Autos.png" />
+  <link rel="apple-touch-icon" href="images/00_Logo_original_FPC_Autos.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter & Manrope fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:    '#12304B',
+            blue:    '#1877B9',
+            bluelt:  '#EAF2FB',
+            offwhite:'#F8F9FA',
+            graytxt: '#4C5F70',
+            accent:  '#E07A2F',
+          },
+          fontFamily: {
+            sans:    ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── Global ── */
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #12304B; background: #fff; }
+    h1,h2,h3,h4 { font-family: 'Manrope', Inter, system-ui, sans-serif; }
+
+    /* ── Scroll-reveal ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Hero overlay ── */
+    .hero-overlay {
+      background: linear-gradient(to right, rgba(18,48,75,.82) 0%, rgba(18,48,75,.55) 60%, rgba(18,48,75,.15) 100%);
+    }
+
+    /* ── Sticky header ── */
+    #header { transition: box-shadow .3s, background .3s; }
+    #header.scrolled { box-shadow: 0 2px 20px rgba(18,48,75,.13); background: rgba(255,255,255,.97); }
+
+    /* ── Nav link ── */
+    .nav-link {
+      position: relative;
+      color: #12304B;
+      font-weight: 500;
+      font-size: .9375rem;
+      transition: color .2s;
+    }
+    .nav-link::after {
+      content:'';
+      position:absolute;
+      bottom:-3px; left:0; right:0;
+      height:2px;
+      background:#1877B9;
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .25s;
+    }
+    .nav-link:hover { color:#1877B9; }
+    .nav-link:hover::after { transform:scaleX(1); }
+
+    /* ── Card hover ── */
+    .card-hover { transition: transform .25s, box-shadow .25s; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(18,48,75,.12); }
+
+    /* ── Stars ── */
+    .stars { color:#E07A2F; letter-spacing:.1em; font-size:1.1rem; }
+
+    /* ── Badge ── */
+    .badge-reze {
+      display:inline-flex; align-items:center; gap:.35rem;
+      background:#E07A2F; color:#fff;
+      font-size:.72rem; font-weight:700;
+      padding:.25rem .65rem;
+      border-radius:9999px;
+      text-transform:uppercase; letter-spacing:.06em;
+    }
+
+    /* ── Focus visible ── */
+    :focus-visible { outline: 3px solid #1877B9; outline-offset: 3px; }
+
+    /* ── Form input ── */
+    .form-input {
+      display:block; width:100%;
+      border:1.5px solid #cdd9e1;
+      border-radius:.5rem;
+      padding:.75rem 1rem;
+      font-size:1rem;
+      color:#12304B;
+      background:#fff;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-input:focus { border-color:#1877B9; box-shadow:0 0 0 3px rgba(24,119,185,.15); outline:none; }
+    .form-label { font-size:.9rem; font-weight:600; color:#4C5F70; margin-bottom:.35rem; display:block; }
+
+    /* ══════════════════════════════════════
+       TOPBAR & HEADER MODERNE
+    ══════════════════════════════════════ */
+    .topbar {
+      background: #12304B;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.8125rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    #header {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    #header.scrolled {
+      box-shadow: 0 4px 25px -4px rgba(18, 48, 75, 0.12), 0 2px 8px -2px rgba(18, 48, 75, 0.06);
+      background: rgba(255, 255, 255, 0.98) !important;
+      border-bottom-color: rgba(203, 213, 225, 0.6);
+    }
+
+    /* ══════════════════════════════════════
+       DESKTOP NAVIGATION LINKS
+    ══════════════════════════════════════ */
+    .nav-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 0.625rem;
+      font-size: 0.915rem;
+      font-weight: 600;
+      color: #334155;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-item:hover {
+      color: #1877B9;
+      background: #EAF2FB;
+    }
+    .nav-item.active {
+      color: #1877B9;
+      background: #EAF2FB;
+    }
+
+    /* ══════════════════════════════════════
+       BURGER BUTTON STYLÉ
+    ══════════════════════════════════════ */
+    #burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      border-radius: 12px;
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      gap: 5px;
+    }
+    #burger:hover {
+      background: #EAF2FB;
+      border-color: #CBD5E1;
+      transform: scale(1.03);
+    }
+    #burger span {
+      display: block;
+      width: 22px;
+      height: 2.2px;
+      background-color: #12304B;
+      border-radius: 999px;
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #burger.is-open span:nth-child(1) {
+      transform: translateY(7.2px) rotate(45deg);
+      background-color: #1877B9;
+    }
+    #burger.is-open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    #burger.is-open span:nth-child(3) {
+      transform: translateY(-7.2px) rotate(-45deg);
+      background-color: #1877B9;
+    }
+
+    /* ══════════════════════════════════════
+       DRAWER MOBILE MENU (PREMIUM)
+    ══════════════════════════════════════ */
+    #menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 48, 75, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #menu-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 360px;
+      background: #FFFFFF;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+      box-shadow: -10px 0 45px rgba(18, 48, 75, 0.22);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-link-card {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.8rem 0.95rem;
+      border-radius: 0.75rem;
+      color: #1E293B;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+    }
+    .mobile-link-card:hover, .mobile-link-card:active {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+      color: #1877B9;
+      transform: translateX(3px);
+    }
+    .mobile-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F1F5F9;
+      color: #1877B9;
+      flex-shrink: 0;
+      transition: all 0.18s ease;
+    }
+    .mobile-link-card:hover .mobile-icon-box {
+      background: #1877B9;
+      color: #FFFFFF;
+    }
+
+    /* ── Price tag ── */
+    .price-tag {
+      font-size:2rem; font-weight:800; font-family:'Manrope',sans-serif;
+      color:#1877B9;
+    }
+
+    /* ── Section divider ── */
+    .section-line {
+      display:block; width:3rem; height:4px;
+      background:#1877B9; border-radius:9999px;
+      margin-bottom:1.25rem;
+    }
+
+    /* ── Image brightness ── */
+    .img-dark { filter: brightness(.85); }
+  </style>
+</head>
+<body class="antialiased">
+
+<!-- ═══════════════════════════════════════════
+     OVERLAY + MENU MOBILE DRAWER (PANNEAU LATÉRAL)
+═══════════════════════════════════════════ -->
+<div id="menu-overlay" aria-hidden="true"></div>
+
+<aside id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+  <!-- En-tête du menu mobile -->
+  <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+    <div class="flex items-center gap-3">
+      <img src="images/00_Logo_original_FPC_Autos.png" alt="FPC Autos" class="h-10 w-auto object-contain" />
+    </div>
+    <button id="menu-close" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors shadow-sm" aria-label="Fermer le menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Actions rapides en haut du menu mobile -->
+  <div class="p-4 bg-white border-b border-slate-100 grid grid-cols-2 gap-2.5">
+    <a href="#rdv" class="mobile-action-btn flex items-center justify-center gap-2 bg-blue text-white py-3 px-3 rounded-xl font-bold text-xs tracking-wide shadow-sm hover:bg-navy transition-colors text-center">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Prendre RDV
+    </a>
+    <a href="https://maps.google.com/?q=15+boulevard+Jean+Moulin,+44100+Nantes" target="_blank" rel="noopener noreferrer" class="mobile-action-btn flex items-center justify-center gap-2 bg-slate-100 text-slate-800 py-3 px-3 rounded-xl font-semibold text-xs tracking-wide border border-slate-200/80 hover:bg-slate-200 transition-colors text-center">
+      <svg width="15" height="15" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Itinéraire
+    </a>
+  </div>
+
+  <!-- Liens de navigation avec icônes -->
+  <nav class="flex-1 p-4 space-y-1 overflow-y-auto" aria-label="Navigation mobile">
+    <a href="#accueil" class="mobile-link-card">
+      <div class="mobile-icon-box">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <div class="text-sm font-bold text-navy">Accueil</div>
+        <div class="text-xs text-slate-400 font-normal">Centre de contrôle à Nantes</div>
+      </div>
+    </a>
+
+    <a href="#controles" class="mobile-link-card">
+      <div class="mobile-icon-box">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+      </div>
+      <div class="flex-1">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-navy">Nos contrôles</span>
+          <span class="text-[10px] font-bold bg-blue/10 text-blue px-2 py-0.5 rounded-full">dès 55€</span>
+        </div>
+        <div class="text-xs text-slate-400 font-normal">Auto, deux-roues, flottes pro</div>
+      </div>
+    </a>
+
+    <a href="#histoire" class="mobile-link-card">
+      <div class="mobile-icon-box">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="flex-1">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-navy">Notre histoire</span>
+          <span class="text-[10px] font-bold bg-amber-500/10 text-amber-700 px-2 py-0.5 rounded-full">depuis 2007</span>
+        </div>
+        <div class="text-xs text-slate-400 font-normal">L'esprit familial depuis près de 20 ans</div>
+      </div>
+    </a>
+
+    <a href="#equipe" class="mobile-link-card">
+      <div class="mobile-icon-box">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="text-sm font-bold text-navy">L'équipe</div>
+        <div class="text-xs text-slate-400 font-normal">Fabrice, Karine et les techniciens</div>
+      </div>
+    </a>
+
+    <a href="#centres" class="mobile-link-card">
+      <div class="mobile-icon-box">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="flex-1">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-navy">Nos centres</span>
+          <span class="text-[10px] font-bold bg-orange-500/10 text-orange-600 px-2 py-0.5 rounded-full">Rezé à venir</span>
+        </div>
+        <div class="text-xs text-slate-400 font-normal">Nantes Jean Moulin & projet Rezé</div>
+      </div>
+    </a>
+
+    <a href="#avis" class="mobile-link-card">
+      <div class="mobile-icon-box">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div>
+        <div class="text-sm font-bold text-navy">Avis clients</div>
+        <div class="text-xs text-slate-400 font-normal">Témoignages de nos usagers</div>
+      </div>
+    </a>
+
+    <a href="#contact" class="mobile-link-card">
+      <div class="mobile-icon-box">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <div class="text-sm font-bold text-navy">Contact & Accès</div>
+        <div class="text-xs text-slate-400 font-normal">Plan, horaires & coordonnées</div>
+      </div>
+    </a>
+  </nav>
+
+  <!-- Encart d'information en bas du menu mobile -->
+  <div class="p-4 bg-slate-50 border-t border-slate-200/80 text-xs text-slate-600 space-y-2">
+    <div class="flex items-start gap-2">
+      <svg width="14" height="14" class="text-blue shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <span>15 boulevard Jean Moulin, 44100 Nantes</span>
+    </div>
+    <div class="text-[11px] text-slate-400 pt-1 border-t border-slate-200">
+      FPC Autos · Entreprise familiale nantaise
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════
+     HEADER STICKY PREMIUM AVEC TOPBAR
+═══════════════════════════════════════════ -->
+<div class="fixed top-0 left-0 right-0 z-50">
+
+  <!-- Top bar informative (visible à partir de md) -->
+  <div class="topbar hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-6">
+        <span class="inline-flex items-center gap-1.5">
+          <svg width="13" height="13" fill="none" stroke="#60b3f8" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          15 boulevard Jean Moulin, 44100 Nantes
+        </span>
+        <span class="inline-flex items-center gap-1.5 text-white/70">
+          <svg width="13" height="13" fill="none" stroke="#60b3f8" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Centre agréé à taille humaine depuis 2007
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#rdv" class="text-white hover:text-white/80 font-medium transition-colors flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
+          Prise de RDV simplifiée
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barre de navigation principale -->
+  <header id="header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+
+        <!-- Logo officiel FPC Autos -->
+        <a href="#accueil" class="flex items-center gap-3 shrink-0 py-1" aria-label="FPC Autos — retour à l'accueil">
+          <img
+            src="images/00_Logo_original_FPC_Autos.png"
+            alt="Logo FPC Autos — Contrôle Technique Nantes"
+            class="h-11 sm:h-14 w-auto object-contain transition-transform hover:scale-[1.02]"
+          />
+        </a>
+
+        <!-- Liens de navigation desktop (lg+) -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Navigation principale">
+          <a href="#accueil"   class="nav-item">Accueil</a>
+          <a href="#controles" class="nav-item">Nos contrôles</a>
+          <a href="#histoire"  class="nav-item">Notre histoire</a>
+          <a href="#equipe"    class="nav-item">L'équipe</a>
+          <a href="#centres"   class="nav-item">Nos centres</a>
+          <a href="#avis"      class="nav-item">Avis</a>
+          <a href="#contact"   class="nav-item">Contact</a>
+        </nav>
+
+        <!-- CTA & déclencheur menu mobile -->
+        <div class="flex items-center gap-2.5 sm:gap-4">
+          <!-- Bouton RDV Desktop -->
+          <a
+            href="#rdv"
+            class="hidden sm:inline-flex items-center gap-2 bg-blue text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl hover:bg-navy transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+          >
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Prendre RDV
+          </a>
+
+          <!-- Burger Button Mobile / Tablette -->
+          <button
+            id="burger"
+            class="lg:hidden"
+            aria-label="Ouvrir le menu de navigation"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — HERO / ACCUEIL
+═══════════════════════════════════════════ -->
+<section id="accueil" class="relative min-h-screen flex items-center overflow-hidden">
+
+  <!-- Background photo -->
+  <div class="absolute inset-0">
+    <img
+      src="images/01_Photo_accueil_page_accueil.png"
+      alt="Accueil chaleureux au comptoir FPC Autos — photo illustrative"
+      class="w-full h-full object-cover object-center"
+      fetchpriority="high"
+    />
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-20">
+    <div class="max-w-2xl">
+
+      <!-- Eyebrow -->
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-white/25">
+        <span class="w-2 h-2 bg-accent rounded-full"></span>
+        Nantes · Centre de contrôle technique
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-5">
+        Votre contrôle technique,<br/>
+        <span class="text-blue" style="color:#60b3f8">en toute confiance.</span>
+      </h1>
+
+      <p class="text-lg sm:text-xl text-white/85 leading-relaxed mb-8 max-w-xl">
+        À Nantes, une équipe à taille humaine vous accueille et vous accompagne depuis 2007. Simple, clair, sans surprise.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-3 mb-12">
+        <a href="#rdv" class="inline-flex items-center gap-2 bg-blue text-white font-bold text-base px-7 py-3.5 rounded-lg hover:bg-navy transition-colors shadow-lg">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Prendre rendez-vous
+        </a>
+        <a href="#controles" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold text-base px-7 py-3.5 rounded-lg border border-white/35 hover:bg-white/20 transition-colors">
+          Découvrir le centre
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Réassurance -->
+      <div class="flex flex-wrap gap-4">
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-lg border border-white/20">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Nantes — Jean Moulin
+        </div>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-lg border border-white/20">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Depuis 2007
+        </div>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-lg border border-white/20">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Accueil de proximité
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50 text-xs animate-bounce">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — NOS CONTRÔLES / PRESTATIONS
+═══════════════════════════════════════════ -->
+<section id="controles" class="bg-offwhite py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <span class="section-line mx-auto"></span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Nos contrôles &amp; prestations</h2>
+      <p class="mt-4 text-graytxt text-lg max-w-2xl mx-auto">
+        Un contrôle technique rigoureux, une démarche accessible et une équipe qui vous explique chaque étape.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+      <!-- Photo atelier -->
+      <div class="reveal rounded-2xl overflow-hidden shadow-md">
+        <img
+          src="images/02_Photo_technicien_prestations.png"
+          alt="Technicien en atelier — photographie illustrative"
+          class="w-full h-72 sm:h-96 object-cover"
+          loading="lazy"
+        />
+        <div class="bg-navy text-white/70 text-xs text-center py-2 px-4 italic">
+          Photographie d'illustration — univers atelier
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="space-y-5 reveal">
+
+        <!-- Auto -->
+        <div class="card-hover bg-white rounded-2xl p-6 border border-bluelt shadow-sm flex gap-5 items-start">
+          <div class="shrink-0 w-12 h-12 bg-bluelt rounded-xl flex items-center justify-center">
+            <svg width="24" height="24" fill="none" stroke="#1877B9" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-navy mb-1">Contrôle technique automobile</h3>
+            <p class="text-graytxt text-sm leading-relaxed">
+              Véhicules particuliers et utilitaires légers. Passage réglementaire, rapport détaillé remis à l'issue du contrôle.
+            </p>
+            <div class="mt-3 flex items-center gap-2">
+              <span class="price-tag text-xl">85 €</span>
+              <span class="text-xs text-graytxt italic bg-offwhite px-2 py-0.5 rounded-full border">tarif indicatif, à confirmer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deux-roues -->
+        <div class="card-hover bg-white rounded-2xl p-6 border border-bluelt shadow-sm flex gap-5 items-start">
+          <div class="shrink-0 w-12 h-12 bg-bluelt rounded-xl flex items-center justify-center">
+            <svg width="24" height="24" fill="none" stroke="#1877B9" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h-3l-2 7H5.5M15 6l3 7h-5.5"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-navy mb-1">Contrôle des deux-roues</h3>
+            <p class="text-graytxt text-sm leading-relaxed">
+              Prestation à confirmer — renseignez-vous directement auprès du centre pour connaître les véhicules éligibles.
+            </p>
+            <div class="mt-3 flex items-center gap-2">
+              <span class="price-tag text-xl">55 €</span>
+              <span class="text-xs text-graytxt italic bg-offwhite px-2 py-0.5 rounded-full border">tarif indicatif, à confirmer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pro -->
+        <div class="card-hover bg-white rounded-2xl p-6 border border-bluelt shadow-sm flex gap-5 items-start">
+          <div class="shrink-0 w-12 h-12 bg-bluelt rounded-xl flex items-center justify-center">
+            <svg width="24" height="24" fill="none" stroke="#1877B9" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-navy mb-1">Professionnels &amp; flottes</h3>
+            <p class="text-graytxt text-sm leading-relaxed">
+              Gestionnaires de flottes et professionnels : contactez-nous pour organiser les passages de vos véhicules selon vos contraintes.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Photo contrôle technique -->
+    <div class="mt-14 reveal rounded-2xl overflow-hidden shadow-md">
+      <img
+        src="images/09_Photo_controle_technique_atelier.png"
+        alt="Techniciens inspectant un véhicule sur pont élévateur — photographie illustrative"
+        class="w-full h-64 sm:h-80 object-cover object-center"
+        loading="lazy"
+      />
+      <div class="bg-navy text-white/70 text-xs text-center py-2 px-4 italic">
+        Photographie d'illustration — expertise et contrôle en atelier
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — ACCOMPAGNEMENT
+═══════════════════════════════════════════ -->
+<section id="accompagnement" class="bg-white py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+      <!-- Text -->
+      <div class="reveal">
+        <span class="section-line"></span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mb-5">
+          Un accompagnement clair,<br/>à chaque étape
+        </h2>
+        <p class="text-graytxt text-lg leading-relaxed mb-6">
+          Chez FPC Autos, nous prenons le temps d'expliquer. Que vous soyez habitué ou que ce soit votre premier contrôle technique, notre équipe vous guide avec clarté et bienveillance.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-bluelt flex items-center justify-center shrink-0 mt-0.5">
+              <svg width="16" height="16" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="text-graytxt text-base"><strong class="text-navy">Résultats expliqués simplement</strong> — chaque point du rapport est commenté à voix haute.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-bluelt flex items-center justify-center shrink-0 mt-0.5">
+              <svg width="16" height="16" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="text-graytxt text-base"><strong class="text-navy">Accueil attentionné</strong> — Karine est là pour répondre à toutes vos questions administratives.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-bluelt flex items-center justify-center shrink-0 mt-0.5">
+              <svg width="16" height="16" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="text-graytxt text-base"><strong class="text-navy">Démarches simplifiées</strong> — nous vous aidons à comprendre les délais et les obligations légales.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Photo -->
+      <div class="reveal rounded-2xl overflow-hidden shadow-md">
+        <img
+          src="images/03_Photo_echange_client_accompagnement.png"
+          alt="Échange entre un professionnel et un client — photographie illustrative"
+          class="w-full h-80 sm:h-96 object-cover"
+          loading="lazy"
+        />
+        <div class="bg-navy text-white/70 text-xs text-center py-2 px-4 italic">
+          Photographie d'illustration — relation client
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — NOTRE HISTOIRE
+═══════════════════════════════════════════ -->
+<section id="histoire" class="bg-navy py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <span class="section-line mx-auto" style="background:#60b3f8"></span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Notre histoire</h2>
+      <p class="mt-4 text-white/70 text-lg max-w-2xl mx-auto">
+        Une entreprise née d'une passion pour l'automobile et d'une conviction : la qualité de service passe par le contact humain.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-14">
+
+      <!-- 2007 -->
+      <div class="reveal bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl p-7 text-center">
+        <div class="text-5xl font-extrabold text-blue mb-2" style="color:#60b3f8">2007</div>
+        <div class="text-white/90 font-semibold text-lg mb-2">Ouverture du centre</div>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Le 1<sup>er</sup> avril 2007, Fabrice Pommier ouvre FPC Autos boulevard Jean Moulin à Nantes, avec l'ambition d'un contrôle technique de qualité et de proximité.
+        </p>
+      </div>
+
+      <!-- Famille -->
+      <div class="reveal bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl p-7 text-center" style="transition-delay:.1s">
+        <div class="w-14 h-14 bg-blue/20 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(96,179,248,.18)">
+          <svg width="28" height="28" fill="none" stroke="#60b3f8" stroke-width="1.6" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="text-white/90 font-semibold text-lg mb-2">Un projet familial</div>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Karine rejoint l'aventure, apportant sa rigueur et sa chaleur à l'accueil et à la gestion administrative du centre.
+        </p>
+      </div>
+
+      <!-- 2027 -->
+      <div class="reveal bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl p-7 text-center" style="transition-delay:.2s">
+        <div class="text-5xl font-extrabold mb-2" style="color:#E07A2F">2027</div>
+        <div class="text-white/90 font-semibold text-lg mb-2">Bientôt 20 ans !</div>
+        <p class="text-white/60 text-sm leading-relaxed">
+          En 2027, FPC Autos fêtera ses 20 ans d'activité — un cap symbolique et une fierté pour toute l'équipe.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Photo équipe -->
+    <div class="reveal max-w-2xl mx-auto text-center">
+      <div class="rounded-2xl overflow-hidden shadow-xl">
+        <img
+          src="images/05_Photo_groupe_equipe.png"
+          alt="Équipe en tenue d'atelier — photographie illustrative, ne représente pas l'équipe FPC Autos"
+          class="w-full object-cover"
+          style="max-height:360px; object-position:top;"
+          loading="lazy"
+        />
+      </div>
+      <p class="text-white/40 text-xs italic mt-3">
+        Photographie d'illustration — ne représente pas l'équipe réelle de FPC Autos
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — L'ÉQUIPE
+═══════════════════════════════════════════ -->
+<section id="equipe" class="bg-offwhite py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <span class="section-line mx-auto"></span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Des visages, un savoir-faire,<br class="hidden sm:block"/> une même attention.</h2>
+      <p class="mt-4 text-graytxt text-lg max-w-xl mx-auto">
+        Quatre personnes engagées au quotidien pour un service sérieux et humain.
+      </p>
+    </div>
+
+    <!-- Notice illustration -->
+    <div class="bg-blue/8 border border-blue/20 rounded-xl px-5 py-3 mb-10 text-sm text-graytxt text-center max-w-2xl mx-auto reveal" style="background:rgba(24,119,185,.06)">
+      <strong class="text-blue">Note :</strong> les photographies ci-dessous sont des <em>photos d'illustration</em> utilisées pour la maquette de démonstration. Elles ne représentent pas les vrais salariés de FPC Autos.
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Fabrice -->
+      <div class="reveal card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-bluelt">
+        <div class="relative overflow-hidden h-56">
+          <img
+            src="images/06_Portrait_illustratif_Fabrice.png"
+            alt="Professionnel souriant — photographie d'illustration"
+            class="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+          <div class="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-navy/60 to-transparent"></div>
+        </div>
+        <div class="p-5">
+          <div class="text-xs font-semibold text-blue uppercase tracking-widest mb-1">Gérant &amp; chef d'atelier</div>
+          <div class="text-lg font-bold text-navy">Fabrice Pommier</div>
+          <p class="text-graytxt text-sm mt-2 leading-relaxed">Direction du centre, supervision technique, relation client et gestion opérationnelle.</p>
+        </div>
+      </div>
+
+      <!-- Karine -->
+      <div class="reveal card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-bluelt" style="transition-delay:.08s">
+        <div class="relative overflow-hidden h-56">
+          <img
+            src="images/07_Portrait_illustratif_Karine.png"
+            alt="Femme souriante à un bureau — photographie d'illustration"
+            class="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+          <div class="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-navy/60 to-transparent"></div>
+        </div>
+        <div class="p-5">
+          <div class="text-xs font-semibold text-blue uppercase tracking-widest mb-1">Accueil &amp; administration</div>
+          <div class="text-lg font-bold text-navy">Karine Pommier</div>
+          <p class="text-graytxt text-sm mt-2 leading-relaxed">Accueil des clients, gestion administrative, planification des rendez-vous et comptabilité.</p>
+        </div>
+      </div>
+
+      <!-- Techniciens -->
+      <div class="reveal card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-bluelt sm:col-span-2" style="transition-delay:.16s">
+        <div class="relative overflow-hidden h-56">
+          <img
+            src="images/09_Photo_controle_technique_atelier.png"
+            alt="Techniciens en atelier — photographie illustrative"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-navy/70 to-transparent"></div>
+        </div>
+        <div class="p-5">
+          <div class="text-xs font-semibold text-blue uppercase tracking-widest mb-1">Techniciens de contrôle</div>
+          <div class="text-lg font-bold text-navy">Notre équipe technique</div>
+          <p class="text-graytxt text-sm mt-2 leading-relaxed">Deux techniciens certifiés assurent les contrôles avec rigueur et professionnalisme. Leur expertise garantit la conformité et la sécurité de chaque passage.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6 — NOS CENTRES
+═══════════════════════════════════════════ -->
+<section id="centres" class="bg-white py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <span class="section-line mx-auto"></span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Nos centres</h2>
+      <p class="mt-4 text-graytxt text-lg max-w-xl mx-auto">
+        Un centre actif à Nantes, et un projet d'expansion en cours.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Nantes -->
+      <div class="reveal card-hover bg-white rounded-2xl border border-bluelt shadow-sm overflow-hidden">
+        <div class="relative">
+          <img
+            src="images/04_Photo_exterieur_garage_centres.png"
+            alt="Façade de garage — photographie d'illustration"
+            class="w-full h-48 object-cover img-dark"
+            loading="lazy"
+          />
+          <div class="absolute top-3 left-3">
+            <span class="bg-blue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Centre actif</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-navy/40 to-transparent"></div>
+          <p class="absolute bottom-1 right-3 text-white/60 text-xs italic">Photo illustrative</p>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-navy mb-3 flex items-center gap-2">
+            <svg width="18" height="18" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            FPC Autos — Nantes
+          </h3>
+          <address class="not-italic text-graytxt text-sm mb-4 leading-relaxed">
+            15 boulevard Jean Moulin<br/>44100 Nantes
+          </address>
+          <div class="space-y-2 text-sm text-graytxt mb-5">
+            <div class="flex items-center gap-2">
+              <svg width="14" height="14" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Horaires : à compléter avec les horaires réels
+            </div>
+            <div class="flex items-center gap-2">
+              <svg width="14" height="14" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.59 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Téléphone : à compléter
+            </div>
+            <div class="flex items-center gap-2">
+              <svg width="14" height="14" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email : à compléter
+            </div>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <a
+              href="https://maps.google.com/?q=15+boulevard+Jean+Moulin,+44100+Nantes"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-blue text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-navy transition-colors"
+            >
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Itinéraire Google Maps
+            </a>
+            <a href="#rdv" class="inline-flex items-center gap-2 border border-blue text-blue font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-bluelt transition-colors">
+              Prendre rendez-vous
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rezé -->
+      <div class="reveal card-hover bg-white rounded-2xl border border-bluelt shadow-sm overflow-hidden" style="transition-delay:.1s">
+        <div class="relative h-48 bg-gradient-to-br from-navy to-blue flex items-center justify-center">
+          <div class="text-center text-white">
+            <svg width="40" height="40" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24" class="mx-auto mb-3 opacity-60"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <p class="text-white/70 text-sm font-medium">Rezé — Projet en cours</p>
+          </div>
+          <div class="absolute top-3 left-3">
+            <span class="badge-reze">
+              <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              Ouverture à venir
+            </span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-navy mb-2">FPC Autos — Rezé <span class="text-sm font-normal text-graytxt">(projet)</span></h3>
+          <p class="text-graytxt text-sm leading-relaxed mb-4">
+            Fort de son expérience nantaise, FPC Autos envisage l'ouverture d'un nouveau centre à Rezé. L'adresse définitive sera communiquée dès confirmation. Restez informés !
+          </p>
+          <div class="bg-accent/10 border border-accent/25 rounded-lg p-3 text-sm text-accent font-medium flex items-start gap-2">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Ce centre n'est pas encore ouvert. La prise de rendez-vous ne sera disponible qu'à l'ouverture officielle.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7 — AVIS CLIENTS
+═══════════════════════════════════════════ -->
+<section id="avis" class="bg-offwhite py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-6 reveal">
+      <span class="section-line mx-auto"></span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Ce que disent nos clients</h2>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="bg-amber-50 border border-amber-200 rounded-xl px-5 py-3 mb-10 text-sm text-amber-800 text-center max-w-2xl mx-auto reveal">
+      <strong>Maquette de démonstration</strong> — les avis ci-dessous sont des exemples fictifs. Aucun avis réel de client n'a été utilisé. Cette section sera remplacée par de vrais témoignages autorisés.
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-bluelt">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-graytxt text-sm italic leading-relaxed mb-4">"Accueil très sympathique, on nous a tout expliqué clairement. Pas de mauvaise surprise, je reviendrai sans hésiter."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-blue/15 rounded-full flex items-center justify-center font-bold text-blue text-sm">M</div>
+          <div>
+            <div class="font-semibold text-navy text-sm">Marie D.</div>
+            <div class="text-graytxt text-xs italic">Avis fictif — démonstration</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-bluelt" style="transition-delay:.08s">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-graytxt text-sm italic leading-relaxed mb-4">"Professionnel, rapide et humain. J'ai apprécié que l'on prenne le temps de me montrer ce qui avait été contrôlé."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-blue/15 rounded-full flex items-center justify-center font-bold text-blue text-sm">P</div>
+          <div>
+            <div class="font-semibold text-navy text-sm">Philippe L.</div>
+            <div class="text-graytxt text-xs italic">Avis fictif — démonstration</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-bluelt" style="transition-delay:.16s">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-graytxt text-sm italic leading-relaxed mb-4">"Centre de quartier comme on les aime. L'accueil est chaleureux, les délais sont respectés et les explications claires."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-blue/15 rounded-full flex items-center justify-center font-bold text-blue text-sm">S</div>
+          <div>
+            <div class="font-semibold text-navy text-sm">Sophie B.</div>
+            <div class="text-graytxt text-xs italic">Avis fictif — démonstration</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8 — PRISE DE RENDEZ-VOUS
+═══════════════════════════════════════════ -->
+<section id="rdv" class="bg-white py-20 lg:py-28">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-10 reveal">
+      <span class="section-line mx-auto"></span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Prendre rendez-vous</h2>
+      <p class="mt-4 text-graytxt text-lg max-w-xl mx-auto">
+        Choisissez votre créneau en quelques clics. Accueil personnalisé garanti.
+      </p>
+    </div>
+
+    <!-- Demo banner -->
+    <div class="bg-blue/8 border border-blue/25 rounded-xl px-5 py-3 mb-8 text-sm text-blue text-center reveal" style="background:rgba(24,119,185,.06)">
+      <strong>Version de démonstration</strong> — Aucun rendez-vous n'est réellement enregistré. Aucune donnée personnelle n'est stockée.
+    </div>
+
+    <!-- Form -->
+    <form id="rdv-form" class="bg-white rounded-2xl border border-bluelt shadow-sm p-6 sm:p-8 reveal" novalidate>
+      <div class="grid sm:grid-cols-2 gap-6">
+
+        <!-- Type de véhicule -->
+        <div>
+          <label for="vehicule" class="form-label">Type de véhicule *</label>
+          <select id="vehicule" name="vehicule" class="form-input" required>
+            <option value="">— Choisir —</option>
+            <option value="auto">Voiture (85 € indicatif)</option>
+            <option value="moto">Deux-roues (55 € indicatif)</option>
+          </select>
+        </div>
+
+        <!-- Centre -->
+        <div>
+          <label for="centre" class="form-label">Centre *</label>
+          <select id="centre" name="centre" class="form-input" required>
+            <option value="">— Choisir —</option>
+            <option value="nantes">Nantes — Jean Moulin</option>
+            <option value="reze" disabled>Rezé (ouverture à venir)</option>
+          </select>
+        </div>
+
+        <!-- Nom -->
+        <div>
+          <label for="nom" class="form-label">Nom complet *</label>
+          <input type="text" id="nom" name="nom" class="form-input" placeholder="Ex : Jean Martin" required autocomplete="name" />
+        </div>
+
+        <!-- Téléphone -->
+        <div>
+          <label for="tel" class="form-label">Téléphone *</label>
+          <input type="tel" id="tel" name="tel" class="form-input" placeholder="06 00 00 00 00" required autocomplete="tel" />
+        </div>
+
+        <!-- Date -->
+        <div>
+          <label for="date" class="form-label">Date souhaitée *</label>
+          <input type="date" id="date" name="date" class="form-input" required />
+        </div>
+
+        <!-- Période -->
+        <div>
+          <label for="periode" class="form-label">Période de la journée *</label>
+          <select id="periode" name="periode" class="form-input" required>
+            <option value="">— Choisir —</option>
+            <option value="matin">Matin</option>
+            <option value="apresmidi">Après-midi</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div class="sm:col-span-2">
+          <label for="message" class="form-label">Informations complémentaires (facultatif)</label>
+          <textarea id="message" name="message" class="form-input" rows="3" placeholder="Modèle de véhicule, questions particulières…"></textarea>
+        </div>
+
+      </div>
+
+      <!-- Récapitulatif prix -->
+      <div id="recap" class="mt-5 hidden bg-offwhite rounded-xl p-4 border border-bluelt text-sm text-graytxt">
+        <div class="font-semibold text-navy mb-1">Récapitulatif indicatif</div>
+        <div id="recap-text"></div>
+      </div>
+
+      <!-- Submit -->
+      <div class="mt-7 flex flex-col sm:flex-row items-center gap-4">
+        <button
+          type="submit"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue text-white font-bold text-base px-8 py-3.5 rounded-lg hover:bg-navy transition-colors"
+        >
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Confirmer la demande
+        </button>
+        <p class="text-xs text-graytxt italic">Les champs marqués * sont obligatoires</p>
+      </div>
+
+    </form>
+
+    <!-- Confirmation message -->
+    <div id="rdv-confirm" class="hidden mt-6 bg-green-50 border border-green-200 rounded-2xl p-6 text-center">
+      <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg width="28" height="28" fill="none" stroke="#16a34a" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-green-800 mb-2">Demande bien reçue !</h3>
+      <p class="text-green-700 text-sm mb-3">
+        <strong>Ceci est une simulation : aucun rendez-vous n'a été enregistré.</strong><br/>
+        Dans la version finale connectée, votre demande serait transmise au centre de Nantes pour confirmation.
+      </p>
+      <button onclick="document.getElementById('rdv-confirm').classList.add('hidden'); document.getElementById('rdv-form').classList.remove('hidden');" class="text-green-700 font-semibold text-sm underline">Faire une autre simulation</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9 — CONTACT
+═══════════════════════════════════════════ -->
+<section id="contact" class="bg-offwhite py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <span class="section-line mx-auto"></span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Nous contacter</h2>
+      <p class="mt-4 text-graytxt text-lg max-w-xl mx-auto">
+        Une question ? Besoin d'un renseignement avant votre visite ? Nous sommes là.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+      <!-- Infos -->
+      <div class="reveal space-y-6">
+
+        <div class="bg-white rounded-2xl p-6 border border-bluelt shadow-sm">
+          <h3 class="font-bold text-navy text-lg mb-4 flex items-center gap-2">
+            <svg width="18" height="18" fill="none" stroke="#1877B9" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            FPC Autos — Nantes
+          </h3>
+          <address class="not-italic text-graytxt text-sm space-y-2">
+            <div>15 boulevard Jean Moulin, 44100 Nantes</div>
+            <div class="flex items-center gap-2 text-graytxt/70 italic text-xs">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Téléphone : à compléter avec les coordonnées réelles
+            </div>
+            <div class="flex items-center gap-2 text-graytxt/70 italic text-xs">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Email : à compléter avec les coordonnées réelles
+            </div>
+            <div class="flex items-center gap-2 text-graytxt/70 italic text-xs">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Horaires : à compléter avec les horaires réels
+            </div>
+          </address>
+          <a
+            href="https://maps.google.com/?q=15+boulevard+Jean+Moulin,+44100+Nantes"
+            target="_blank" rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-2 bg-blue text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-navy transition-colors"
+          >
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Voir sur Google Maps
+          </a>
+        </div>
+
+        <!-- Carte Google Maps embed -->
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-bluelt h-56">
+          <iframe
+            title="Localisation FPC Autos — 15 boulevard Jean Moulin, Nantes"
+            src="https://maps.google.com/maps?q=15+boulevard+Jean+Moulin,+44100+Nantes&output=embed"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+      </div>
+
+      <!-- Contact form -->
+      <div class="reveal">
+        <form id="contact-form" class="bg-white rounded-2xl border border-bluelt shadow-sm p-6 sm:p-8" novalidate>
+          <h3 class="font-bold text-navy text-lg mb-5">Envoyer un message</h3>
+
+          <div class="space-y-5">
+            <div>
+              <label for="c-nom" class="form-label">Votre nom *</label>
+              <input type="text" id="c-nom" name="nom" class="form-input" required autocomplete="name" />
+            </div>
+            <div>
+              <label for="c-email" class="form-label">Votre email *</label>
+              <input type="email" id="c-email" name="email" class="form-input" required autocomplete="email" />
+            </div>
+            <div>
+              <label for="c-sujet" class="form-label">Sujet</label>
+              <input type="text" id="c-sujet" name="sujet" class="form-input" placeholder="Ex : Question sur les horaires" />
+            </div>
+            <div>
+              <label for="c-msg" class="form-label">Message *</label>
+              <textarea id="c-msg" name="message" class="form-input" rows="4" required></textarea>
+            </div>
+          </div>
+
+          <div class="mt-5 bg-amber-50 border border-amber-100 rounded-lg px-4 py-2.5 text-xs text-amber-700">
+            <strong>Maquette de démonstration</strong> — ce formulaire ne transmet aucun message réellement.
+          </div>
+
+          <button type="submit" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-blue text-white font-bold text-base py-3.5 rounded-lg hover:bg-navy transition-colors">
+            Envoyer le message
+          </button>
+        </form>
+
+        <div id="contact-confirm" class="hidden mt-4 bg-green-50 border border-green-200 rounded-xl p-5 text-center text-sm text-green-800">
+          <strong>Message simulé !</strong> Dans la version finale, votre message serait transmis à l'équipe FPC Autos.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="bg-navy text-white/70 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-white/10">
+
+      <!-- Logo + tagline -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <img src="images/00_Logo_original_FPC_Autos.png" alt="Logo FPC Autos" class="h-12 w-auto object-contain mb-3 brightness-200" />
+        <p class="text-sm leading-relaxed text-white/55">
+          Centre de contrôle technique automobile à Nantes depuis 2007. Une équipe familiale à votre service.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <div class="font-semibold text-white text-sm mb-3 uppercase tracking-wide">Navigation</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#accueil"   class="hover:text-white transition-colors">Accueil</a></li>
+          <li><a href="#controles" class="hover:text-white transition-colors">Nos contrôles</a></li>
+          <li><a href="#histoire"  class="hover:text-white transition-colors">Notre histoire</a></li>
+          <li><a href="#equipe"    class="hover:text-white transition-colors">L'équipe</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-semibold text-white text-sm mb-3 uppercase tracking-wide">Informations</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#centres" class="hover:text-white transition-colors">Nos centres</a></li>
+          <li><a href="#avis"    class="hover:text-white transition-colors">Avis clients</a></li>
+          <li><a href="#rdv"     class="hover:text-white transition-colors">Rendez-vous</a></li>
+          <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Adresse -->
+      <div>
+        <div class="font-semibold text-white text-sm mb-3 uppercase tracking-wide">Centre Nantes</div>
+        <address class="not-italic text-sm space-y-1">
+          <div>15 boulevard Jean Moulin</div>
+          <div>44100 Nantes</div>
+          <div class="text-white/40 italic text-xs mt-2">Téléphone : à compléter</div>
+          <div class="text-white/40 italic text-xs">Horaires : à compléter</div>
+        </address>
+      </div>
+
+    </div>
+
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/35">
+      <div>
+        © <span id="year"></span> FPC Autos. 
+        <span class="ml-2 text-white/25 italic">Maquette de démonstration — aucun contenu publié commercialement.</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Mentions légales à compléter</span>
+        <span class="text-white/20">|</span>
+        <span>Site réalisé par <span class="text-white/50 font-medium">Nexvia Digital</span></span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+// ── Current year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ── Set min date for RDV form
+(function(){
+  const d = document.getElementById('date');
+  if(d){
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth()+1).padStart(2,'0');
+    const dd = String(today.getDate()).padStart(2,'0');
+    d.min = `${yyyy}-${mm}-${dd}`;
+  }
+})();
+
+// ── Sticky header on scroll
+(function(){
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 20){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+})();
+
+// ── Mobile menu — panneau latéral
+(function(){
+  var burger   = document.getElementById('burger');
+  var menu     = document.getElementById('mobile-menu');
+  var overlay  = document.getElementById('menu-overlay');
+  var closeBtn = document.getElementById('menu-close');
+
+  function openMenu(){
+    menu.classList.add('open');
+    overlay.classList.add('show');
+    burger.classList.add('is-open');
+    menu.setAttribute('aria-hidden','false');
+    burger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ closeBtn.focus(); }, 80);
+  }
+
+  function closeMenu(){
+    menu.classList.remove('open');
+    overlay.classList.remove('show');
+    burger.classList.remove('is-open');
+    menu.setAttribute('aria-hidden','true');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+    burger.focus();
+  }
+
+  if(burger)   burger.addEventListener('click', openMenu);
+  if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if(overlay)  overlay.addEventListener('click', closeMenu);
+
+  // Fermer sur clic sur n'importe quel lien interne du menu mobile
+  if(menu) menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      // Si c'est un lien d'ancre local, on ferme le tiroir
+      if(a.getAttribute('href') && a.getAttribute('href').startsWith('#')){
+        closeMenu();
+      }
+    });
+  });
+
+  // Fermer sur Échap
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && menu && menu.classList.contains('open')) closeMenu();
+  });
+})();
+
+// ── Scroll reveal
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('visible'); });
+    return;
+  }
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ obs.observe(el); });
+})();
+
+// ── RDV form — recap + simulate
+(function(){
+  const form   = document.getElementById('rdv-form');
+  const recap  = document.getElementById('recap');
+  const recapTxt = document.getElementById('recap-text');
+  const confirm  = document.getElementById('rdv-confirm');
+
+  const vehicule = document.getElementById('vehicule');
+  const centre   = document.getElementById('centre');
+  const dateFld  = document.getElementById('date');
+  const periode  = document.getElementById('periode');
+
+  function updateRecap(){
+    const v = vehicule.value;
+    const c = centre.value;
+    const d = dateFld.value;
+    const p = periode.value;
+    if(!v || !c || !d || !p){ recap.classList.add('hidden'); return; }
+
+    const prix = v === 'auto' ? '85 €' : '55 €';
+    const lib  = v === 'auto' ? 'Voiture' : 'Deux-roues';
+    const dateStr = new Date(d).toLocaleDateString('fr-FR', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    const perStr  = p === 'matin' ? 'Matin' : 'Après-midi';
+    const centrStr = c === 'nantes' ? 'Nantes — 15 bd Jean Moulin' : 'Rezé';
+
+    recapTxt.innerHTML =
+      `<strong>${lib}</strong> — Tarif indicatif : <strong>${prix}</strong> (à confirmer)<br/>
+       Centre : <strong>${centrStr}</strong><br/>
+       Date souhaitée : <strong>${dateStr}</strong>, <strong>${perStr}</strong>`;
+    recap.classList.remove('hidden');
+  }
+
+  [vehicule, centre, dateFld, periode].forEach(function(el){
+    el.addEventListener('change', updateRecap);
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    form.classList.add('hidden');
+    confirm.classList.remove('hidden');
+    confirm.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+})();
+
+// ── Contact form simulate
+(function(){
+  const form = document.getElementById('contact-form');
+  const conf = document.getElementById('contact-confirm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    conf.classList.remove('hidden');
+    conf.scrollIntoView({ behavior:'smooth', block:'center' });
+    form.reset();
+  });
+})();
+</script>
+
+</body>
+</html>
